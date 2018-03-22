@@ -53,7 +53,7 @@ app.post('/', function(req, res, next) {
         
         // Respond to fact about number
 				const msg = trivia + " Tell me an another number or say bye!";
-				assistant.tell(msg);
+				assistant.ask(msg);
 				}
     });
   }
