@@ -30,6 +30,7 @@ app.post('/', function(req, res, next) {
 
   // Declare constants for your action and parameter names
   const ACTION_TRIVIA = 'fact';
+  const ACTION_MATH = 'math';
   
   // Declare parameters name here
   const NUMBER_PARAMETER = 'number';
@@ -52,7 +53,27 @@ app.post('/', function(req, res, next) {
         logObject('trivia: ' , trivia);
         
         // Respond to fact about number
-				const msg = trivia + " Tell me an another number or say bye!";
+				const msg = "\"" + trivia + "\" Tell me an another number or say bye!";
+				assistant.ask(msg);
+				}
+    });
+  }
+  
+  function mathHandler(assistant) {
+    console.log('** Handling action: ' + ACTION_MATH);
+    
+    let requestURL = api_url + encodeURIComponent(number) + '/math';
+    request(requestURL, function(error, response) {
+      if(error) {
+        console.log("got an error: " + error);
+        next(error);
+      } else {        
+        let math = (response.body);
+        
+        logObject('trivia: ' , math);
+        
+        // Respond to math about number
+				const msg = "\"" + math + "\" Tell me an another number or say bye!";
 				assistant.ask(msg);
 				}
     });
@@ -61,6 +82,7 @@ app.post('/', function(req, res, next) {
   // Add handler functions to the action router.
   let actionRouter = new Map();
   actionRouter.set(ACTION_TRIVIA, triviaHandler);
+  actionRouter.set(ACTION_MATH, mathHandler);
   
   // Route requests to the proper handler functions via the action router.
   assistant.handleRequest(actionRouter);
