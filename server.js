@@ -37,6 +37,7 @@ app.post('/', function(req, res, next) {
   let number = assistant.getArgument(NUMBER_PARAMETER);    
   
   const api_url ='http://numbersapi.com/'; 
+  const notFound = number + " is a number for which we're missing a fact (submit one to numbersapi at google mail!).";
   
   // Create functions to handle intents here
   function triviaHandler(assistant) {
@@ -50,6 +51,10 @@ app.post('/', function(req, res, next) {
       } else {        
         let trivia = (response.body);
         
+        if ( trivia == notFound ){
+          trivia = number + " is a boring number :(" ;
+          //console.log("good work");
+        }
         logObject('trivia: ' , trivia);
         
         // Respond to fact about number
@@ -69,8 +74,11 @@ app.post('/', function(req, res, next) {
         next(error);
       } else {        
         let math = (response.body);
-        
-        logObject('trivia: ' , math);
+        if ( math == notFound ){
+          math = number + " is a boring number :(" ;
+          //console.log("good work");
+        }
+        logObject('math: ' , math);
         
         // Respond to math about number
 				const msg = "\"" + math + "\" Tell me an another number or say bye!";
