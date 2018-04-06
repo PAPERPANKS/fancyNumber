@@ -1,7 +1,7 @@
 {
-  "name": "numberphile",
-  "version": "1.1.0",
-  "description": "A basic template for a webhook that can work for your action on google (or Dialogflow) integration",
+  "name": "Fancy Number",
+  "version": "1.5.0",
+  "description": "A webhook that can work for your action on google (or Dialogflow) integration to get a trivia for any number",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -16,7 +16,7 @@
   "engines": {
     "node": "6.9.1"
   },
-  "repository": "https://github.com/PAPERPANKS/numeropedia",
+  "repository": "https://github.com/PAPERPANKS/fancyNumber",
   "license": "MIT",
   "keywords": [
     "node",
