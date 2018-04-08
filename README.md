@@ -1,5 +1,9 @@
 # fancyNumber
 
+## Demo
+
+[![Demo Doccou alpha](https://j.gifs.com/gLGgmZ.gif)](https://www.youtube.com/watch?v=hQW2uwxYalo)
+
 ## tech stack
 - dialogflow(GCP)
 - nodejs for backend
