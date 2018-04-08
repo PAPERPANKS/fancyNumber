@@ -1,5 +1,5 @@
 {
-  "name": "Fancy Number",
+  "name": "FancyNumber",
   "version": "1.5.0",
   "description": "A webhook that can work for your action on google (or Dialogflow) integration to get a trivia for any number",
   "main": "server.js",
